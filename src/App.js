@@ -4,6 +4,7 @@ import img from './images/bg.jpg'
 import ModalStage1 from './ModalStage1'
 import ModalStage2 from './ModalStage2'
 import ModalStage3 from './ModalStage3'
+import ModalStage4 from './ModalStage4'
 
 const StyledApp = styled.div`
   background-image: url(${img});
@@ -195,6 +196,16 @@ function App() {
               setModalStage={setModalStage}
               handleChange={handleChange}
               formData={formData}
+            />
+          </div>
+        )}
+        {modalStage === 4 && (
+          <div className="modal fly-in">
+            <ModalStage4
+              modalStage={modalStage}
+              setModalStage={setModalStage}
+              formData={formData}
+              setFormData={setFormData}
             />
           </div>
         )}
