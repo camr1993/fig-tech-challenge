@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import img from './images/bg.jpg'
 import ModalStage1 from './ModalStage1'
 import ModalStage2 from './ModalStage2'
+import ModalStage3 from './ModalStage3'
 
 const StyledApp = styled.div`
   background-image: url(${img});
@@ -152,7 +153,7 @@ function App() {
       })
     }
   }
-  console.log('FORM DATa', formData)
+
   return (
     <StyledApp>
       <div className="overlay"></div>
@@ -180,6 +181,16 @@ function App() {
         {modalStage === 2 && (
           <div className="modal fly-in">
             <ModalStage2
+              modalStage={modalStage}
+              setModalStage={setModalStage}
+              handleChange={handleChange}
+              formData={formData}
+            />
+          </div>
+        )}
+        {modalStage === 3 && (
+          <div className="modal fly-in">
+            <ModalStage3
               modalStage={modalStage}
               setModalStage={setModalStage}
               handleChange={handleChange}
