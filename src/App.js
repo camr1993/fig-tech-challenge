@@ -131,12 +131,28 @@ function App() {
   }
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    if (e.target.name === 'termYears') {
+      let months = e.target.value * 12
+      setFormData({
+        ...formData,
+        termYears: e.target.value,
+        termMonths: months,
+      })
+    } else if (e.target.name === 'termMonths') {
+      let years = (e.target.value / 12).toFixed(2)
+      setFormData({
+        ...formData,
+        termMonths: e.target.value,
+        termYears: years,
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      })
+    }
   }
-
+  console.log('FORM DATa', formData)
   return (
     <StyledApp>
       <div className="overlay"></div>

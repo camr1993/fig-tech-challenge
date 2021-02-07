@@ -19,6 +19,17 @@ const StyledModal2 = styled.div`
       font-size: 20px;
       display: flex;
       align-items: center;
+      justify-content: space-evenly;
+
+      .sub-form {
+        label {
+          margin: 0 3px 0 0;
+        }
+      }
+
+      .or {
+        margin: 0 30px;
+      }
     }
 
     input {
@@ -28,7 +39,7 @@ const StyledModal2 = styled.div`
       font-size: 20px;
       padding: 2px 7px;
       margin-left: 5px;
-      width: 268px;
+      width: 75px;
     }
 
     .button-div {
@@ -72,13 +83,27 @@ export default function ModalStage2({
           className="input-form"
         >
           <div>
-            <input
-              type="number"
-              name="termYears"
-              onChange={handleChange}
-              value={formData.termYears}
-              required
-            />
+            <div className="sub-form">
+              <label>Years</label>
+              <input
+                type="number"
+                name="termYears"
+                onChange={handleChange}
+                value={formData.termYears}
+                required
+              />
+            </div>
+            <div className="or">Or</div>
+            <div className="sub-form">
+              <label>Months</label>
+              <input
+                type="number"
+                name="termMonths"
+                onChange={handleChange}
+                value={formData.termMonths}
+                required
+              />
+            </div>
           </div>
           <div className="button-div">
             <button type="button" onClick={() => setModalStage(modalStage - 1)}>
