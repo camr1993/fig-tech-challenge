@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import img from './images/bg.jpg'
+import ModalStage1 from './ModalStage1'
 
 const StyledApp = styled.div`
   background-image: url(${img});
@@ -75,6 +76,7 @@ const StyledApp = styled.div`
         cursor: pointer;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
           0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        border: none;
         transition: background-color 0.3s ease;
 
         &:hover {
@@ -95,7 +97,7 @@ const StyledApp = styled.div`
       padding: 30px;
       box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 
-      .modal-text {
+      /* .modal-text {
         display: flex;
         flex-direction: column;
 
@@ -106,7 +108,6 @@ const StyledApp = styled.div`
 
         hr {
           margin: -3px 0 30px 0;
-          /* border: 1px solid #cecefb; */
         }
 
         .input-form {
@@ -149,7 +150,7 @@ const StyledApp = styled.div`
             }
           }
         }
-      }
+      } */
     }
 
     .fly-in {
@@ -170,10 +171,10 @@ const StyledApp = styled.div`
 function App() {
   const [modalStage, setModalStage] = useState(0)
   const [formData, setFormData] = useState({
-    loanAmount: null,
-    termYears: null,
-    termMonths: null,
-    interestRate: null,
+    loanAmount: '',
+    termYears: '',
+    termMonths: '',
+    interestRate: '',
   })
   const welcomeDiv = useRef(null)
 
@@ -192,8 +193,6 @@ function App() {
     })
   }
 
-  console.log('FROM DATA', formData)
-
   return (
     <StyledApp>
       <div className="overlay"></div>
@@ -210,7 +209,7 @@ function App() {
         </div>
         {modalStage === 1 && (
           <div className="modal fly-in">
-            <div className="modal-text">
+            {/* <div className="modal-text">
               <div className="modal-title">Enter Loan Amount:</div>
               <hr />
               <form
@@ -224,9 +223,47 @@ function App() {
                     name="loanAmount"
                     onChange={handleChange}
                     value={formData.loanAmount}
+                    required
                   />
                 </div>
                 <div className="button-div">
+                  <button type="submit">Continue</button>
+                </div>
+              </form>
+            </div> */}
+            <ModalStage1
+              modalStage={modalStage}
+              setModalStage={setModalStage}
+              handleChange={handleChange}
+              formData={formData}
+            />
+          </div>
+        )}
+        {modalStage === 2 && (
+          <div className="modal fly-in">
+            <div className="modal-text">
+              <div className="modal-title">Enter Loan Term:</div>
+              <hr />
+              <form
+                onSubmit={() => setModalStage(modalStage + 1)}
+                className="input-form"
+              >
+                <div>
+                  <input
+                    type="number"
+                    name="termYears"
+                    onChange={handleChange}
+                    value={formData.termYears}
+                    required
+                  />
+                </div>
+                <div className="button-div">
+                  <button
+                    type="button"
+                    onClick={() => setModalStage(modalStage - 1)}
+                  >
+                    Go Back
+                  </button>
                   <button type="submit">Continue</button>
                 </div>
               </form>
