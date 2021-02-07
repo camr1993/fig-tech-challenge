@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/fig-tech-challenge/static/css/main.d7426f8a.chunk.css",
+    "main.js": "/fig-tech-challenge/static/js/main.eba47ca5.chunk.js",
+    "main.js.map": "/fig-tech-challenge/static/js/main.eba47ca5.chunk.js.map",
+    "runtime-main.js": "/fig-tech-challenge/static/js/runtime-main.4aa4f997.js",
+    "runtime-main.js.map": "/fig-tech-challenge/static/js/runtime-main.4aa4f997.js.map",
+    "static/js/2.5d1fab87.chunk.js": "/fig-tech-challenge/static/js/2.5d1fab87.chunk.js",
+    "static/js/2.5d1fab87.chunk.js.map": "/fig-tech-challenge/static/js/2.5d1fab87.chunk.js.map",
+    "index.html": "/fig-tech-challenge/index.html",
+    "static/css/main.d7426f8a.chunk.css.map": "/fig-tech-challenge/static/css/main.d7426f8a.chunk.css.map",
+    "static/js/2.5d1fab87.chunk.js.LICENSE.txt": "/fig-tech-challenge/static/js/2.5d1fab87.chunk.js.LICENSE.txt",
+    "static/media/bg.7d32f10d.jpg": "/fig-tech-challenge/static/media/bg.7d32f10d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4aa4f997.js",
+    "static/js/2.5d1fab87.chunk.js",
+    "static/css/main.d7426f8a.chunk.css",
+    "static/js/main.eba47ca5.chunk.js"
+  ]
+}
