@@ -78,6 +78,8 @@ export default function ModalStage3({
             onChange={handleChange}
             value={formData.interestRate}
             required
+            min="0"
+            step=".01"
           />
         </div>
         <div className="button-div">

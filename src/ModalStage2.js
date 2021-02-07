@@ -91,6 +91,8 @@ export default function ModalStage2({
                 onChange={handleChange}
                 value={formData.termYears}
                 required
+                min="0"
+                step=".01"
               />
             </div>
             <div className="or">Or</div>
@@ -102,6 +104,7 @@ export default function ModalStage2({
                 onChange={handleChange}
                 value={formData.termMonths}
                 required
+                min="0"
               />
             </div>
           </div>

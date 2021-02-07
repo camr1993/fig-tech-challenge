@@ -78,6 +78,7 @@ export default function ModalStage1({
             onChange={handleChange}
             value={formData.loanAmount}
             required
+            min="0"
           />
         </div>
         <div className="button-div">
