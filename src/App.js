@@ -63,6 +63,7 @@ const StyledApp = styled.div`
       font-size: 18px;
       opacity: 1;
       transition: opacity 0.8s ease;
+      margin: 30px;
 
       .title {
         font-size: 70px;
@@ -97,6 +98,10 @@ const StyledApp = styled.div`
       min-height: 100px;
       padding: 30px;
       box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+      @media screen and (max-width: 500px) {
+        padding: 15px;
+      }
     }
 
     .fly-in {

@@ -21,6 +21,12 @@ const StyledModal2 = styled.div`
       align-items: center;
       justify-content: space-evenly;
 
+      @media screen and (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        line-height: 3;
+      }
+
       .sub-form {
         label {
           margin: 0 3px 0 0;
@@ -46,6 +52,7 @@ const StyledModal2 = styled.div`
       margin-top: 30px;
       width: 100%;
       display: flex;
+      flex-direction: row;
       justify-content: space-evenly;
 
       button {
