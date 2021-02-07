@@ -8,6 +8,25 @@ const StyledApp = styled.div`
   background-position: center;
   background-size: cover;
 
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+
   .overlay {
     width: 100vw;
     height: 100vh;
@@ -39,7 +58,7 @@ const StyledApp = styled.div`
       text-align: center;
       font-size: 18px;
       opacity: 1;
-      transition: opacity 1s ease;
+      transition: opacity 0.8s ease;
 
       .title {
         font-size: 70px;
@@ -65,18 +84,78 @@ const StyledApp = styled.div`
     }
 
     .modal {
-      background-color: #fff;
+      background-color: #f5f4f4;
       border-radius: 5px;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      /* justify-content: center;
+      align-items: center; */
       min-width: 300px;
-      min-height: 200px;
+      min-height: 100px;
+      padding: 30px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+      .modal-text {
+        display: flex;
+        flex-direction: column;
+
+        .modal-title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        hr {
+          margin: -3px 0 30px 0;
+          /* border: 1px solid #cecefb; */
+        }
+
+        .input-form {
+          & > div {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+          }
+
+          input {
+            height: 30px;
+            border: 1px solid #bfbfbf;
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 2px 7px;
+            margin-left: 5px;
+            width: 268px;
+          }
+
+          .button-div {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            button {
+              color: #f5f4f4;
+              font-size: 16px;
+              border-radius: 5px;
+              padding: 10px 20px;
+              background-color: #667eea;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+              box-shadow: none;
+              border: none;
+
+              &:hover {
+                background-color: #849aff;
+              }
+            }
+          }
+        }
+      }
     }
 
     .fly-in {
-      animation: fly-in-animation 2s cubic-bezier(0.5, 0.25, 0, 1);
+      animation: fly-in-animation 1s cubic-bezier(0.5, 0.25, 0, 1);
     }
+
     @keyframes fly-in-animation {
       0% {
         transform: translateY(100vh);
@@ -103,8 +182,17 @@ function App() {
     setTimeout(function () {
       welcomeDiv.current.style.display = 'none'
       setModalStage(1)
-    }, 1000)
+    }, 800)
   }
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  console.log('FROM DATA', formData)
 
   return (
     <StyledApp>
@@ -121,7 +209,29 @@ function App() {
           </button>
         </div>
         {modalStage === 1 && (
-          <div className="modal fly-in">Words words words words</div>
+          <div className="modal fly-in">
+            <div className="modal-text">
+              <div className="modal-title">Enter Loan Amount:</div>
+              <hr />
+              <form
+                onSubmit={() => setModalStage(modalStage + 1)}
+                className="input-form"
+              >
+                <div>
+                  <span>$</span>
+                  <input
+                    type="number"
+                    name="loanAmount"
+                    onChange={handleChange}
+                    value={formData.loanAmount}
+                  />
+                </div>
+                <div className="button-div">
+                  <button type="submit">Continue</button>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
       </div>
     </StyledApp>
