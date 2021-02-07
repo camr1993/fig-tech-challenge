@@ -67,7 +67,10 @@ export default function ModalStage1({
       <div className="modal-title">Enter Loan Amount:</div>
       <hr />
       <form
-        onSubmit={() => setModalStage(modalStage + 1)}
+        onSubmit={(e) => {
+          e.preventDefault()
+          setModalStage(modalStage + 1)
+        }}
         className="input-form"
       >
         <div>
