@@ -67,19 +67,27 @@ export default function ModalStage4({
     return formData.loanAmount / d
   }
 
+  function formatMoney(number) {
+    return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
+  }
+
   return (
     <StyledModal4>
       <div className="modal-title">Your Monthly Payment is:</div>
       <hr />
       <div className="result">
-        <div className="monthly">${calcMonthlyPayments().toFixed(2)}</div>
-        <div>Total Principal Paid: ${formData.loanAmount}</div>
+        <div className="monthly">
+          ${formatMoney(calcMonthlyPayments().toFixed(2))}
+        </div>
+        <div>Total Principal Paid: ${formatMoney(formData.loanAmount)}</div>
         <div>
           Total Interest Paid: $
-          {(
-            calcMonthlyPayments() * formData.termMonths -
-            formData.loanAmount
-          ).toFixed(2)}
+          {formatMoney(
+            (
+              calcMonthlyPayments() * formData.termMonths -
+              formData.loanAmount
+            ).toFixed(2)
+          )}
         </div>
       </div>
       <div className="button-div">
